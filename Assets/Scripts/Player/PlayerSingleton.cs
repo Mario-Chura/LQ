@@ -44,7 +44,7 @@ public class PlayerSingleton : MonoBehaviour
     public void HideAndLockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
+        Cursor.visible = false;
     }
 
     public void ShowAndUnlockCursor()

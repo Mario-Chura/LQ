@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class ControladorPantalla : MonoBehaviour
 {
-    [SerializeField] GameObject pantalla1, pantalla2;
+    [SerializeField]
+    GameObject pantalla1, pantalla2;
 
-    [SerializeField] GameObject[] niveles;
+    [SerializeField]
+    GameObject[] niveles;
 
-    [SerializeField] int nivel;
+    [SerializeField]
+    int nivel;
 
     void Start()
     {
@@ -48,7 +51,6 @@ public class ControladorPantalla : MonoBehaviour
             {
                 BloquearNiveles();
             }
-
             pantalla1.SetActive(true);
             pantalla2.SetActive(false);
         }

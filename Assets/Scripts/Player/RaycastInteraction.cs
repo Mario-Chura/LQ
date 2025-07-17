@@ -38,7 +38,7 @@ public class RaycastInteraction : MonoBehaviour
                 {
                     currentInteractable.Interact();
 
-                    if (exercisePanel != null)
+                    if (exercisePanel != null && hit.collider.CompareTag("Key"))
                     {
 
                         //Pausar juego
@@ -77,6 +77,12 @@ public class RaycastInteraction : MonoBehaviour
 
     private int currentExerciseIndex = -1;
 
+
+    [Tooltip("TextMeshProUGUI para colocar si la respuesta es correcta o no")]
+    [SerializeField] AudioSource audioSourceAnswer;
+    [SerializeField] AudioClip audioAnswerCorrect;
+    [SerializeField] AudioClip audioAnswerIncorrect;
+
     public void ShowRandomExercise()
     {
         if (exerciseImages.Count == 0) return;
@@ -103,15 +109,25 @@ public class RaycastInteraction : MonoBehaviour
             PlayerSingleton.isPaused = false;
             Time.timeScale = 1.0f; //para reanudar el juego
 
+            //agregamos la llave al contador
+            //PlayerSingleton.Instance.playerInventory.CollectKey();
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            SceneManager.LoadScene(nextSceneIndex);
+            //SceneManager.LoadScene(nextSceneIndex);
+
+            //manda mensaje si la respuesta es correcta
+            if (audioSourceAnswer != null)
+                audioSourceAnswer.PlayOneShot(audioAnswerCorrect);
         }
         else
         {
             Debug.Log("Respuesta Incorrecta. Intenta con otro ejercicio.");
             ShowRandomExercise();
+
+            //manda mensaje si la respuesta es incorrecta
+            if (audioSourceAnswer != null)
+                audioSourceAnswer.PlayOneShot(audioAnswerIncorrect);
         }
     }
 }

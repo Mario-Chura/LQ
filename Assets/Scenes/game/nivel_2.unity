@@ -4395,6 +4395,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 749049175}
     m_Modifications:
+    - target: {fileID: 2450649744638636951, guid: 542c92fb752aed142a91ef2ae943eda2, type: 3}
+      propertyPath: soundLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870322049151564093, guid: 542c92fb752aed142a91ef2ae943eda2, type: 3}
+      propertyPath: soundLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7292808117586842926, guid: 542c92fb752aed142a91ef2ae943eda2, type: 3}
       propertyPath: m_Name
       value: Bottle (14)
@@ -13392,7 +13400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 2
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

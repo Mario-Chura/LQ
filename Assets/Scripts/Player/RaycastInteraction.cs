@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+
+
+// TMP
 using TMPro;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+
 
 public class RaycastInteraction : MonoBehaviour
 {
@@ -37,20 +39,12 @@ public class RaycastInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     currentInteractable.Interact();
-
-                    if (exercisePanel != null)
-                    {
-                        exercisePanel.SetActive(true);
-                        ShowRandomExercise();
-
-                        Cursor.lockState = CursorLockMode.None;
-                        Cursor.visible = true;
-                    }
                 }
             }
         }
     }
 
+    // Dibuja una línea de depuración en la escena
     private void OnDrawGizmos()
     {
         if (playerCamera != null)
@@ -58,50 +52,6 @@ public class RaycastInteraction : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawLine(playerCamera.position, playerCamera.position + playerCamera.forward * rayDistance);
         }
-    }
-
-
-    //  FUNCIONES DE EJERCICIO (AÃ‘ADIDAS)
-   
-    [Header("Exercise Settings")]
-    public List<Sprite> exerciseImages;
-    public Image displayImage;
-    public List<string> correctAnswers;
-    public TMP_InputField userInput;
-    public GameObject exercisePanel;
-
-    private int currentExerciseIndex = -1;
-
-    public void ShowRandomExercise()
-    {
-        if (exerciseImages.Count == 0) return;
-
-        currentExerciseIndex = Random.Range(0, exerciseImages.Count);
-        displayImage.sprite = exerciseImages[currentExerciseIndex];
-        userInput.text = ""; // Limpiar el campo de respuesta
-    }
-
-    public void CheckAnswer()
-    {
-        if (currentExerciseIndex == -1) return;
-
-        string correct = correctAnswers[currentExerciseIndex];
-        string userResponse = userInput.text.Trim();
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         
-        if (userResponse.Equals(correct.Trim(), System.StringComparison.OrdinalIgnoreCase))
-        {
-            Debug.Log("Respuesta Correcta");
-            exercisePanel.SetActive(false);
-
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            Debug.Log("Respuesta Incorrecta. Intenta con otro ejercicio.");
-            ShowRandomExercise();
-        }
     }
 }

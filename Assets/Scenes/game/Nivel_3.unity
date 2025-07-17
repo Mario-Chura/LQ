@@ -13259,7 +13259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d45bcb8d8f2004fbe17ee330912f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 10
+  timeRemaining: 180
   timerText: {fileID: 908786526}
   gameOverPanel: {fileID: 101515774}
   audioSource: {fileID: 1188123847}

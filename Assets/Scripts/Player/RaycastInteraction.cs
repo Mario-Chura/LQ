@@ -1,8 +1,14 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+
+
+using UnityEngine;
+using UnityEngine.UI;
+
+
+// TMP
+using TMPro;
+
 
 public class RaycastInteraction : MonoBehaviour
 {
@@ -56,6 +62,7 @@ public class RaycastInteraction : MonoBehaviour
         }
     }
 
+    // Dibuja una l�nea de depuraci�n en la escena
     private void OnDrawGizmos()
     {
         if (playerCamera != null)

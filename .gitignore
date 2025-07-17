@@ -71,6 +71,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Unity Samples (auto-generated)
+/[Aa]ssets/[Ss]amples/
+
 # Archivos específicos del proyecto (opcional)
 *.tmp
 *.log

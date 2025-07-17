@@ -74,25 +74,35 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void InternalLockUpdate()
         {
-            if(Input.GetKeyUp(KeyCode.Escape))
+            //Player Singleton pertenece a la escena
+            if (!PlayerSingleton.isPaused)
             {
-                m_cursorIsLocked = false;
-            }
-            else if(Input.GetMouseButtonUp(0))
-            {
-                m_cursorIsLocked = true;
-            }
+                if (Input.GetKeyUp(KeyCode.Escape))
+                {
+                    m_cursorIsLocked = false;
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    m_cursorIsLocked = true;
+                }
 
-            if (m_cursorIsLocked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                if (m_cursorIsLocked)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+                else if (!m_cursorIsLocked)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
             }
-            else if (!m_cursorIsLocked)
+            else
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
+                
         }
 
         Quaternion ClampRotationAroundXAxis(Quaternion q)

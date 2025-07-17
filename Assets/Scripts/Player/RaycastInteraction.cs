@@ -40,11 +40,16 @@ public class RaycastInteraction : MonoBehaviour
 
                     if (exercisePanel != null)
                     {
+
+                        //Pausar juego
+                        PlayerSingleton.isPaused = true;
+                        Time.timeScale = 0.0f; //para pausar el juego
+
                         exercisePanel.SetActive(true);
                         ShowRandomExercise();
 
-                        Cursor.lockState = CursorLockMode.None;
-                        Cursor.visible = true;
+                        //Cursor.lockState = CursorLockMode.None;
+                        //Cursor.visible = true;
                     }
                 }
             }
@@ -93,6 +98,11 @@ public class RaycastInteraction : MonoBehaviour
         {
             Debug.Log("Respuesta Correcta");
             exercisePanel.SetActive(false);
+
+            //Pausar juego
+            PlayerSingleton.isPaused = false;
+            Time.timeScale = 1.0f; //para reanudar el juego
+
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

@@ -140,13 +140,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 ProgressStepCycle(speed);
                 UpdateCameraPosition(speed);
 
-                if (!PlayerSingleton.isPaused)
-                    m_MouseLook.UpdateCursorLock();
-                else
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                }
+                m_MouseLook.UpdateCursorLock();
 
                 //verificar si no esta muy bajo en el eje Y
                 YMinim();

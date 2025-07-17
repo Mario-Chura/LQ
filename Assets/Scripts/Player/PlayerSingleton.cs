@@ -41,6 +41,11 @@ public class PlayerSingleton : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+        isPaused = false;
+        isGameOver = false;
+    }
     public void HideAndLockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -130,6 +135,9 @@ public class PlayerSingleton : MonoBehaviour
 
         pantallaPerdiste.SetActive(false);
         pantallaGanaste.SetActive(false);
+
+        Destroy(Instance.gameObject); // destruir el singleton manualmente
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -141,6 +149,9 @@ public class PlayerSingleton : MonoBehaviour
         isPaused = false;
 
         pantallaGanaste.SetActive(false);
+
+        Destroy(Instance.gameObject); // destruir el singleton manualmente
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -148,11 +159,16 @@ public class PlayerSingleton : MonoBehaviour
     {
         Debug.Log("Main Menu");
 
+        //Time.timeScale = 1.0f; //para reanudar el juego en caso se halla pausado
+
         isGameOver = false;
         isPaused = false;
 
         pantallaPerdiste.SetActive(false);
         pantallaGanaste.SetActive(false);
+
+        Destroy(Instance.gameObject); // destruir el singleton manualmente
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
 }

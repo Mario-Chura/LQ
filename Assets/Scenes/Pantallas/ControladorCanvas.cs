@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class ControladorCanvas : MonoBehaviour
 {
     void Start() {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
     }
     void Update()
     {

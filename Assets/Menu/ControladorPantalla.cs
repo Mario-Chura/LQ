@@ -15,7 +15,9 @@ public class ControladorPantalla : MonoBehaviour
     int nivel;
 
     void Start(){
-       DesbloquearNiveles();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        DesbloquearNiveles();
     }
 
     void DesbloquearNiveles(){
